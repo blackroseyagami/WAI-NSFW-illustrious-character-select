@@ -1,54 +1,108 @@
-WAI-NSFW-illustrious-SDXL 專用角色選擇器
+Here's the updated `README.md` text with proper **credits to the original author** added at the end, while maintaining all previous content and the note about the English UI fork:
 
-easy to use stable-diffusion-webui for WAI-NSFW-illustrious-SDXL https://civitai.com/models/827184?modelVersionId=1183765
+---
 
-相關安裝 dependence
+# WAI-NSFW-Illustrious Character Select (English UI Fork)
 
-add-detail-xl  https://huggingface.co/PvDeep/Add-Detail-XL/blob/main/add-detail-xl.safetensors
+A fully functional **character selection extension** for use with the [WAI-NSFW-illustrious-SDXL model](https://civitai.com/models/827184?modelVersionId=1183765) in **Stable Diffusion WebUI**.
 
-Pony: People's Works - ponyv4_noob1_2_adamW-000017  https://civitai.green/models/856285/pony-peoples-works?modelVersionId=1036362
+🔧 This version includes:
 
-ChihunHentai  https://civitai.com/models/106586
+* ✅ Full English UI translation
+* ✅ Cleaned and refactored code
+* ✅ Working prompt system with character and pose randomization
+* ✅ AI prompt expansion support (LLaMA 3 API-ready)
+* ✅ Compatibility fixes for WebUI reForge
 
-SDXL VAE  https://civitai.com/models/296576?modelVersionId=333245
+---
 
-如何安裝: 透過普通 URL 安裝即可
+## 🔧 Requirements
 
-To install: Go to settings tab of stable-diffusion-webui, go to install from url, paste in this url and click install:
+Before using, make sure you have these models installed:
 
-更新 !!!!!如新功能無法使用請砍掉重新安裝!!!!
+* **Add-Detail-XL**
+  [`add-detail-xl.safetensors`](https://huggingface.co/PvDeep/Add-Detail-XL/blob/main/add-detail-xl.safetensors)
 
-4/13 新增100名角色
+* **Pony: People’s Works - ponyv4\_noob1\_2\_adamW-000017**
+  [CivitAI model link](https://civitai.green/models/856285/pony-peoples-works?modelVersionId=1036362)
 
-2/23 調整部分預設，新增簡易手機模式
+* **ChihunHentai**
+  [CivitAI model link](https://civitai.com/models/106586)
 
-2/22 人物翻譯完成，動作部分恕我不太想翻譯(恥力不夠，不小心被人喵到不太好....)，部分prompt調整
+* **SDXL VAE**
+  [CivitAI model link](https://civitai.com/models/296576?modelVersionId=333245)
 
-2/20 小調整及翻譯，處理切換太快產生當機bug，新增分開的隨機按鈕
+---
 
-2/15 更新AI功能(預設、建議可自行申請API Key)、部分角色名稱修正、免額外下載檔案，AI使用上目前 llama-3.3-70b-versatile
+## 📦 How to Install
 
-1/19 更新AI功能、部分角色名稱修正、下載Timeout 延長至10分鐘
+1. Open **Stable Diffusion WebUI**.
+2. Go to **Extensions > Install from URL**.
+3. Paste the URL of this repository (your forked version).
+4. Click **Install**.
+5. Restart the WebUI.
 
-AI 功能 支援 各家API ex: groq llama-3.3-70b-versatile (免費) 
+> If the extension fails to update, uninstall and reinstall it from scratch.
 
-設定方式:
+---
 
-extensions\WAI-NSFW-illustrious-character-select\custom_settings.json
+## 📅 Recent Updates
 
-將 ai 設定為 true
+* **Apr 13**: Added 100 new characters.
+* **Feb 23**: Added simplified mobile view and adjusted defaults.
+* **Feb 22**: Completed character name translations. (Pose names remain untranslated for discretion.)
+* **Feb 20**: Fixed crash caused by fast switching; added separate random buttons.
+* **Feb 15**: Added AI prompt generator (LLaMA 3); adjusted character names; no longer requires manual downloads.
+* **Jan 19**: Improved timeout handling (now 10 minutes) for JSON downloads; added more AI prompt fixes.
 
-並輸入 api_key (自行自 https://console.groq.com/ 申請)
+---
 
-ex:
+## 🤖 Optional: Enable AI Prompt Expansion
 
-    "ai": true,
-    
-    "base_url": "https://api.groq.com/openai/v1/chat/completions",
-    
-    "model": "llama-3.3-70b-versatile",
-    
-    "api_key":"gsk_UGQDzQaAxXrWx9ycd9OlW--------------------"
-    
+You can enable AI-powered prompt generation via an external API like Groq’s LLaMA 3.
 
+### Setup Instructions
 
+1. Open this file:
+
+   ```
+   extensions/WAI-NSFW-illustrious-character-select/custom_settings.json
+   ```
+2. Set `"ai": true`.
+3. Add your API key and model settings like this:
+
+```json
+{
+  "ai": true,
+  "base_url": "https://api.groq.com/openai/v1/chat/completions",
+  "model": "llama-3.3-70b-versatile",
+  "api_key": "gsk_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+}
+```
+
+> You can get a free API key from [https://console.groq.com/](https://console.groq.com/)
+
+---
+
+## 📁 File Structure
+
+* `character_select.py`: Main script (UI + logic)
+* `custom_settings.json`: Your local config (editable)
+* `character.json`, `action.json`: Character and pose definitions
+* `output_*.json`: Character image previews
+* `zh_TW.json`: Translations (English applied internally)
+
+---
+
+## 🙏 Credits
+
+* **Original author**: [@jinzai-stable-diffusion](https://github.com/jinzai-stable-diffusion)
+
+  * Original repository (in Chinese): [WAI-NSFW-illustrious-character-select](https://github.com/jinzai-stable-diffusion/WAI-NSFW-illustrious-character-select)
+  * Special thanks for their detailed UI design, preset management, and prompt architecture.
+
+* This fork was translated and modified for full English use by the community to improve accessibility and functionality in international setups.
+
+---
+
+Let me know if you'd like me to convert this into a downloadable `README.md` file for your repository.
