@@ -98,7 +98,7 @@ class CharacterSelect(scripts.Script):
         self.hm_config_1_component = self.get_config2(self.hm_config_1)
         #for item in self.get_character(self.hm_config_7):
         #    self.hm_config_1_component.update({item : item})
-        num_parts = 11
+        num_parts = 10
         self.hm_config_1_img = []
         for i in range(num_parts):            
             for item in self.get_config2(f"output_{i+1}.json"):
@@ -152,33 +152,33 @@ class CharacterSelect(scripts.Script):
 
         self.elm_prfx = "characterselect"
         CharacterSelect.txt2img_neg_prompt_btn = gr.Button(
-            value="使用預設值",
+            value="Use Default",
             variant="primary",
             render = False,
             elem_id=f"{self.elm_prfx}_neg_prompt_btn"
         )
         CharacterSelect.txt2img_prompt_btn = gr.Button(
-            value="使用提詞",
+            value="Apply Prompt",
             variant="primary",
             render = False,
             elem_id=f"{self.elm_prfx}_prompt_btn"
         )
         CharacterSelect.txt2img_radom_C_prompt_btn = gr.Button(
-            value="人物",
+            value="Character",
             variant="primary",
             render = False,
             elem_id=f"{self.elm_prfx}_C_randomprompt_btn", 
             min_width=50
         )
         CharacterSelect.txt2img_radom_A_prompt_btn = gr.Button(
-            value="動作",
+            value="Action",
             variant="primary",
             render = False,
             elem_id=f"{self.elm_prfx}_A_randomprompt_btn", 
             min_width=50
         )
         CharacterSelect.txt2img_radom_prompt_btn = gr.Button(
-            value="全部隨機",
+            value="Random All",
             variant="primary",
             render = False,
             elem_id=f"{self.elm_prfx}_randomprompt_btn", 
@@ -187,7 +187,7 @@ class CharacterSelect(scripts.Script):
 
         #h_m 人物
         CharacterSelect.txt2img_hm1_dropdown = gr.Dropdown(
-            label="人物搜尋",
+            label="Character Search",
             choices=list(self.hm_config_1_component.keys()),
             render = False,
             elem_id=f"{self.elm_prfx}_hm1_dd"
@@ -203,7 +203,7 @@ class CharacterSelect(scripts.Script):
         )
 
         CharacterSelect.txt2img_hmzht_dropdown = gr.Dropdown(
-            label="中文人物搜尋",
+            label="Chinese Character Search",
             choices=list(self.localizations_component.keys()),
             render = False,
             elem_id=f"{self.elm_prfx}_hmzht_dd"
@@ -215,7 +215,7 @@ class CharacterSelect(scripts.Script):
 
         #h_m 姿勢
         CharacterSelect.txt2img_hm2_dropdown = gr.Dropdown(
-            label="動作",
+            label="Action",
             choices=list(self.hm_config_2_component.keys()),
             render = False,
             elem_id=f"{self.elm_prfx}_hm2_dd"
@@ -229,25 +229,25 @@ class CharacterSelect(scripts.Script):
             elem_id=f"{self.elm_prfx}_func00_chk"
         )
         CharacterSelect.func01_chk =gr.Checkbox(
-            label="增加細節",
+            label="More Detail",
             render = False,
             container = False,
             elem_id=f"{self.elm_prfx}_func01_chk"
         )
         CharacterSelect.func02_chk =gr.Checkbox(
-            label="身材加強",
+            label="Body Enhance",
             render = False,
             container = False,
             elem_id=f"{self.elm_prfx}_func02_chk"
         )
         CharacterSelect.func03_chk = gr.Checkbox(
-            label="品質加強",
+            label="Quality",
             render = False,
             container = False,
             elem_id=f"{self.elm_prfx}_func03_chk"
         )
         CharacterSelect.func04_chk =gr.Checkbox(
-            label="人物加強",
+            label="Character Enhance",
             render = False,
             container = False,
             elem_id=f"{self.elm_prfx}_func04_chk"
@@ -267,9 +267,9 @@ class CharacterSelect(scripts.Script):
             elem_id=f"{self.elm_prfx}_lock2_btn"
         )
         #中文輸入框
-        CharacterSelect.txt2img_cprompt_txt = gr.Textbox(lines=4, placeholder="可輸入中文描述，透過AI擴充場景", label="AI 擴充 prompt", elem_id=f"{self.elm_prfx}_cprompt_txt")
+        CharacterSelect.txt2img_cprompt_txt = gr.Textbox(lines=4, placeholder="You may write a prompt description to expand with AI.", label="AI Expanded Prompt", elem_id=f"{self.elm_prfx}_cprompt_txt")
         CharacterSelect.txt2img_cprompt_btn = gr.Button(
-            value="AI擴充",
+            value="Expand Prompt",
             label="cpromptbtn",
             variant="primary",
             render = False,
@@ -284,10 +284,10 @@ class CharacterSelect(scripts.Script):
         This method is called from .show(), as that's the first method ScriptRunner calls after handing some state dat (is_txt2img, is_img2img2)
         """ 
         
-        self.hide_all_button = gr.Button(value="簡易版", variant="primary", render=False, visible=True, elem_id=f"{self.elm_prfx}_hide_all_bttn")
-        self.show_all_button = gr.Button(value="一般版", variant="primary", render=False, visible=True, elem_id=f"{self.elm_prfx}_show_all_bttn")
-        self.lock_seed_button = gr.Button(value="鎖定seed", variant="primary", render=False, visible=True, elem_id=f"{self.elm_prfx}_lock_seed_bttn")
-        self.rdn_seed_button = gr.Button(value="隨機seed", variant="primary", render=False, visible=True, elem_id=f"{self.elm_prfx}_rdn_seed_bttn")
+        self.hide_all_button = gr.Button(value="Simplified View", variant="primary", render=False, visible=True, elem_id=f"{self.elm_prfx}_hide_all_bttn")
+        self.show_all_button = gr.Button(value="Full View", variant="primary", render=False, visible=True, elem_id=f"{self.elm_prfx}_show_all_bttn")
+        self.lock_seed_button = gr.Button(value="Lock Seed", variant="primary", render=False, visible=True, elem_id=f"{self.elm_prfx}_lock_seed_bttn")
+        self.rdn_seed_button = gr.Button(value="Random Seed", variant="primary", render=False, visible=True, elem_id=f"{self.elm_prfx}_rdn_seed_bttn")
 
     def title(self):
         return "CharacterSelect"
@@ -301,7 +301,7 @@ class CharacterSelect(scripts.Script):
         #if kwargs.get("label") == self.before_component_label:
         with gr.Row(equal_height = True):
             CharacterSelect.txt2img_neg_prompt_btn.render()
-        with gr.Accordion(label="人物動作設定", open = True, elem_id=f"{'txt2img' if self.is_txt2img else 'img2img'}_preset_manager_accordion"):
+        with gr.Accordion(label="Character Action Settings", open = True, elem_id=f"{'txt2img' if self.is_txt2img else 'img2img'}_preset_manager_accordion"):
             with gr.Row(equal_height = True):
                 CharacterSelect.txt2img_hm1_dropdown.render() 
             with gr.Row(equal_height = True):
@@ -316,7 +316,7 @@ class CharacterSelect(scripts.Script):
                 CharacterSelect.txt2img_radom_C_prompt_btn.render()
                 CharacterSelect.txt2img_radom_A_prompt_btn.render()
                 CharacterSelect.txt2img_radom_prompt_btn.render()
-        with gr.Accordion(label="其他設定", open = False, elem_id=f"{'txt2img' if self.is_txt2img else 'img2img'}_h_setting_accordion"):
+        with gr.Accordion(label="Other Settings", open = False, elem_id=f"{'txt2img' if self.is_txt2img else 'img2img'}_h_setting_accordion"):
             with gr.Row(equal_height = True):
                 CharacterSelect.func00_chk.render()
                 CharacterSelect.func01_chk.render()
