@@ -44,6 +44,7 @@ Before using, make sure you have these models installed:
 
 ## 📅 Recent Updates
 
+* **May 9**: Created this translated fork.
 * **Apr 13**: Added 100 new characters.
 * **Feb 23**: Added simplified mobile view and adjusted defaults.
 * **Feb 22**: Completed character name translations. (Pose names remain untranslated for discretion.)
