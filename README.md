@@ -1,7 +1,3 @@
-Here's the updated `README.md` text with proper **credits to the original author** added at the end, while maintaining all previous content and the note about the English UI fork:
-
----
-
 # WAI-NSFW-Illustrious Character Select (English UI Fork)
 
 A fully functional **character selection extension** for use with the [WAI-NSFW-illustrious-SDXL model](https://civitai.com/models/827184?modelVersionId=1183765) in **Stable Diffusion WebUI**.
@@ -102,7 +98,3 @@ You can enable AI-powered prompt generation via an external API like Groq’s LL
   * Special thanks for their detailed UI design, preset management, and prompt architecture.
 
 * This fork was translated and modified for full English use by the community to improve accessibility and functionality in international setups.
-
----
-
-Let me know if you'd like me to convert this into a downloadable `README.md` file for your repository.
